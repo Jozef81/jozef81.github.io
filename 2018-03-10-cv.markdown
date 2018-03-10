@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Little bit about me"
+date:   2018-03-10 23:03:45 +0200
+author: "Jozef Varga"
+depth: 1
+permalink: /cv/
+categories: cv
+---
+
+# **Jozef Varga**
+
+
+#### Employed student who ends studies in May this year and looks for an opportunity to work in an area that I enjoy - IT analysis. Participating on multiple Bank projects and have experience in the banking environment.
+
+# **Work experience**
+####	IT Analyst at Poštová Banka, a.s. 			(August 2017 – yet)
+-	analysis of business requirements
+-	creation of a functional specification
+-	creating methodologies for modeling business processes (including integration and application view)
+-	modeling processes in BPMN
+-	analyzing integration between applications
+-	cooperation with enterprise Architecture department
+
+####	IT Analyst at ZUNO Bank AG			(December 2016 – Jun 2017)
+-	participation on client migration project (wind-down):
+	*	data analysis from multiple sources (client, loan, garnishment, payments)
+	*	developing automated scripts for creating reports (PLSQL)
+	*	developing validation scripts for verifying reports (PLSQL)
+
+####	IT Tester at ZUNO Bank AG				(April 2016 – November 2016)
+-	responsibility for preparing test scenarios and test data
+-	responsibility for performing UAT and SIT tests
+-	analyzing issues including searching for the corresponding logs and detecting the cause of the issue
+-	reporting bugs to JIRA
+-	creating automated scripts that perform many test scenarios
+-	working with other test teams on clients closing activities
+
+ 
+# **Education**
+-	L. Novomeského high school in Bratislava				(2008 – 2012)
+-	Slovak University of Technology in Bratislava 			(2012 – 2018)
+	*	Faculty of Informatics and Information technology
+
+# **Languages**
+*	English – B1
+*	Slovak – native
+
+# **IT Skills**
+
+
+| *SQL/PLSQL* | *UML* | *BPMN* |
+| *Error analyst* | *JAVA* | *Database modeling* |
+| *MS Excel (including VBA)* | *JIRA* | *Enterprise Architect* |
+

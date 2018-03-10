@@ -6,22 +6,25 @@ layout: default
   {% if page.title %}
     <h1 class="page-heading">{{ page.title }}</h1>
   {% endif %}
+  
 
   {{ content }}
   
-<table border="5" bordercolor="red" align="center">
+<table class="table" align="center">
     <tr>
 		<td>
 			<a href="/Documents/">
 				<img src="\assets\Act1.jpg" border=5>
 			</a> 
-		</th>	
+		</td>	
 		<td>
 			<a href="/Projects/">
 				<img src="\assets\Act2.jpg" border=5>
 			</a> 
-		</th>	
+		</td>	
     </tr>
+</table>
+<table class="table" align="center">
     <tr>
 		<td>
 			<a href="/about/">
@@ -29,14 +32,14 @@ layout: default
 			</a> 
 		</th>	
 		<td>
-			<a href="/">
+			<a href="/cv/">
 				<img src="\assets\Act4.jpg" border=5>
 			</a> 
 		</th>	
     </tr>
 </table>
 
-  {% if site.posts.size > 0 %}
+  <!--{% if site.posts.size > 0 %}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
       {% for post in site.posts %}
@@ -56,6 +59,6 @@ layout: default
     </ul>
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {% endif %}
+  {% endif %}-->
 
 </div>
