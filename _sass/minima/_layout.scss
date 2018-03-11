@@ -446,7 +446,7 @@ dropdown-menu li {
 
 .footer-col-wrapper {
   @include relative-font-size(0.9375);
-  color: $grey-color;
+  color: #000000;
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
 }
@@ -468,8 +468,8 @@ dropdown-menu li {
 }
 
 .footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:         calc(45% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+  width:         calc(35% - (#{$spacing-unit} / 2));
 }
 
 @include media-query($on-laptop) {

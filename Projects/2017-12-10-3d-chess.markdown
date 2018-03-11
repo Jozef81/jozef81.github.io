@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Prvý projekt"
-date:   2018-03-08 16:18:45 +0200
+title:  "3D Chess"
+date:   2017-12-10 10:42:45 +0200
 author: "Jozef Varga"
 depth: 2
 parent: /Projects/
 categories: projects
 ---
 
-Nejaký textík
+Popis projektu 3D šachy.

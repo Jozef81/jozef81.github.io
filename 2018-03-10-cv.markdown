@@ -49,7 +49,7 @@ categories: cv
 # **IT Skills**
 
 
-| *SQL/PLSQL* | *UML* | *BPMN* |
-| *Error analyst* | *JAVA* | *Database modeling* |
-| *MS Excel (including VBA)* | *JIRA* | *Enterprise Architect* |
+| **SQL/PLSQL** | **UML** | **BPMN** |
+| **Error analyst** | **JAVA** | **Database modeling** |
+| **MS Excel (including VBA)** | **JIRA** | **Enterprise Architect** |
 
