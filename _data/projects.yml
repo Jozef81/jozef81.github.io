@@ -2,19 +2,40 @@
   course: Web publication
   date: march 2018
   url: /Projects/2018-03-10-personal-static-web-page.html
+  status: finished
   
 - title: 3D Chess
   course: Principles of Computer Graphics and Image Processing 
   date: december 2017
   url: /Projects/2017-12-10-3d-chess.html
+  status: finished
   
 - title: Functional specification for apothecary's IS
   course: Principles of Software Engineering 
   date: may 2017
   url: /Projects/2017-12-08-fs-apothecary.html
+  status: finished
   
 - title: Virtual Wallet
   course: Development of Applications With Multilayer Architecture 
   date: may 2017
   url: /Projects/2017-05-25-virtual-wallet.html
+  status: finished
+  
+- title: Marking source code
+  course: Bachelor project
+  date: may 2018
+  url: /Projects/2017-12-01-marking-source-code.html
+  status: in progress
+  
+- title: Onboarding for Library
+  course: Principles of Information Systems 
+  date: may 2018
+  url: /Projects/2018-02-10-ondboarding-for-library.html
+  status: in progress
  
+- title: Smart House
+  course: Design of Computer Application 
+  date: march 2018
+  url: /Projects/2018-02-20-smart-house.html
+  status: in progress

@@ -3,6 +3,9 @@ layout: default
 ---
 
 <div class="home">
+
+	{% assign finished_status = "finished" %}
+
   {% if page.title %}
     <h1 class="page-heading">{{ page.title }}</h1>
   {% endif %}
@@ -10,23 +13,42 @@ layout: default
   {{ content }}
 
   {% if site.data.projects.size > 0 %}
+      <h2 class="post-list-heading">List of projects in progress</h2>
+		<ul class="post-list">
+		  {% for project in site.data.projects %}
+			  {% if project.status != finished_status %}
+				  <li>
+					{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+					<h3>
+					  <a class="post-link" href="{{ project.url | relative_url }}">
+						{{ project.title | escape }}
+						<span class="post-meta">{{ project.date | date: date_format }}</span>
+					  </a>
+					</h3>
+						Course : {{  project.course }}
+				  </li>
+			  {% endif %}
+		  {% endfor %}
+		</ul>
+  
     <h2 class="post-list-heading">List of finished projects</h2>
     <ul class="post-list">
       {% for project in site.data.projects %}
-      <li>
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <h3>
-          <a class="post-link" href="{{ project.url | relative_url }}">
-            {{ project.title | escape }}
-			<span class="post-meta">{{ project.date | date: date_format }}</span>
-          </a>
-        </h3>
-			Course : {{  project.course }}
-      </li>
+		  {% if project.status == finished_status %}
+			  <li>
+				{% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+				<h3>
+				  <a class="post-link" href="{{ project.url | relative_url }}">
+					{{ project.title | escape }}
+					<span class="post-meta">{{ project.date | date: date_format }}</span>
+				  </a>
+				</h3>
+					Course : {{  project.course }}
+			  </li>
+		  {% endif %}
       {% endfor %}
     </ul>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {% endif %}
 
 </div>

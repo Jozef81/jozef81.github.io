@@ -17,13 +17,15 @@
 					{% if 1 == node.depth %}
 					<li>
 						<a class="dropdown-toggle" href='{{node.url}}'>{{node.title}}</a>
-						<ul class="dropdown-menu" data-show="hover">
-						{% for subnode in site.pages %}
-							{% if 2 == subnode.depth and node.permalink == subnode.parent %}
-								<li><a href='{{subnode.url}}'>{{subnode.title}}</a></li>
-							{% endif %}
-						{% endfor %}
-						</ul>
+						{% if node.title == "Projects" %}
+							<ul class="dropdown-menu" data-show="hover">
+							{% for subnode in site.pages %}
+								{% if 2 == subnode.depth and node.permalink == subnode.parent %}
+									<li><a href='{{subnode.url}}'>{{subnode.title}}</a></li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						{% endif %}	
 					</li>
 					{% endif %}
 				{% endfor %}

@@ -1,9 +1,9 @@
 ---
-layout: projects
+layout: docs
 title: Documents
 depth: 1
 sort: 4
 permalink: /Documents/
 ---
 
-This is page about dokuments.
+This page contains my personal posts.

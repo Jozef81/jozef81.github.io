@@ -232,20 +232,24 @@ table {
   color: lighten($text-color, 18%);
   border-collapse: collapse;
   border: 1px solid $grey-color-light;
+  border-style: hidden;
   tr {
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+	  border-style: hidden;
     }
   }
   th, td {
     padding: ($spacing-unit / 3) ($spacing-unit / 2);
+	border-style: hidden;
   }
   th {
     background-color: lighten($grey-color-light, 3%);
     border: 1px solid darken($grey-color-light, 4%);
     border-bottom-color: darken($grey-color-light, 12%);
+	border-style: hidden;
   }
   td {
     border: 1px solid $grey-color-light;
+	border-style: hidden;
   }
 }
