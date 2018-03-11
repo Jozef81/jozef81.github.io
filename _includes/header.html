@@ -5,6 +5,7 @@
     {% assign page_paths = site.header_pages | default: default_paths %}
 	
 	{% assign pages = site.pages | sort: "sort" %}
+	{% assign pages_by_title = site.pages | sort: "title", 'first' %}
 	
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
 
@@ -13,13 +14,13 @@
 			<li>
 				<a class="dropdown-toggle" href="#">MENU</a>
 				<ul class="dropdown-menu" data-show="hover" data-role="dropdown">
-				{% for node in site.pages %}
+				{% for node in pages %}
 					{% if 1 == node.depth %}
 					<li>
 						<a class="dropdown-toggle" href='{{node.url}}'>{{node.title}}</a>
 						{% if node.title == "Projects" %}
 							<ul class="dropdown-menu" data-show="hover">
-							{% for subnode in site.pages %}
+							{% for subnode in pages_by_title %}
 								{% if 2 == subnode.depth and node.permalink == subnode.parent %}
 									<li><a href='{{subnode.url}}'>{{subnode.title}}</a></li>
 								{% endif %}

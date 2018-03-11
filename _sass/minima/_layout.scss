@@ -163,11 +163,11 @@
  z-index:1000;
  display:none;
  width:auto;
- min-width:220px;
+ min-width:250px;
  padding:0;
  margin:0;
  list-style:none;
- background:#fff;
+ background:#eeeeee;
  border:1px solid #dcddde
 }
 dropdown-menu li {
@@ -503,8 +503,10 @@ dropdown-menu li {
 
 .body {
 	background-image: url("/assets/background4.jpg");
+	background-size: 120%;
 	background-position: center;
-	background-size: 1920px 1080px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 

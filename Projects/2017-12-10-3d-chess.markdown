@@ -8,4 +8,119 @@ parent: /Projects/
 categories: projects
 ---
 
-Popis projektu 3D šachy.
+# OpenGL project
+
+* Use of Texture mapping on 3D geometry.
+	* Unique 3D meshes. (2p)  :heavy_check_mark:
+	* Unique texturing using uv coordinates. (2p)  :heavy_check_mark:
+	* Use of basic material properties. (1p)  :heavy_check_mark:
+* Hierarchical object transformation and camera.
+	* Animated or interactive camera with perspective projection. (2p)  :heavy_check_mark:
+	* Use of hierarchical transformations in the game scene. (2p)  :heavy_check_mark:
+	* Use of multiple camera view presets. (1p)  :heavy_check_mark:
+* Interaction and simple game logic.
+	* Implementation of basic game logic, game has multiple scenes, is playable and has an ending. (2p)  :heavy_check_mark:
+	* Effective object to object collisions and interactions. (2p)  :heavy_check_mark:
+	* Dynamic scene with game objects being created and destroyed during gameplay.  :heavy_check_mark:
+* Animation using keyframes, splines or simulation.
+	* Data driven animations, recommended using key-frames. (2p)  :heavy_check_mark:
+	* Basic simulated animation eg. gravity. (2p)  :heavy_multiplication_x:
+	* Procedurally driven animation. (1p)  :heavy_multiplication_x:
+* Lighting with multiple light sources.
+	* Diffuse scene lighting with materials. (2b)  :heavy_check_mark:
+	* Phong lighting. (1b)  :heavy_check_mark:
+	* Shadows or reflections using any approach you can think of. (2b) :heavy_multiplication_x:
+	
+# Screenshot from project
+
+![chess](/assets/chess.jpg)
+	
+# Interesting parts of project
+
+**Object animation and collision detection**
+```cpp
+bool Pawn::animate(Scene &scene){
+    fig_move(scene);
+    if(obj_animation) {
+        modelMatrix = glm::interpolate(keyFrames[iter].modelMatrix, keyFrames[iter + 1].modelMatrix,
+                                       (float) t / keyFrames[iter + 1].time);
+        t++;
+        if (t > keyFrames[iter + 1].time) {
+            if (iter > 2) {
+                scene.animation = false;
+                obj_animation = false;
+                iter = 0;
+                position = temp_position;
+            }
+            t = 0;
+            iter++;
+        }
+    } else {
+        for (auto &obj : scene.objects) {
+            // Ignore self in scene
+            if (obj.get() == this) continue;
+
+            auto pawn = dynamic_cast<Pawn *>(obj.get()); 
+            auto king = dynamic_cast<King *>(obj.get()); 
+            auto knight = dynamic_cast<Knight *>(obj.get());
+            auto bishop = dynamic_cast<Bishop *>(obj.get());
+            auto queen = dynamic_cast<Queen *>(obj.get()); 
+            auto rook = dynamic_cast<Rook *>(obj.get()); 
+            if (!pawn && !king && !knight && !bishop && !queen && !rook) continue;
+
+            // Compare distance to approximate size of the asteroid estimated from scale.
+            if ((distance(position, obj->position) < (obj->scale.x + scale.x) * 0.5f) ||
+                (distance(position, obj->position) < (obj->scale.y + scale.y) * 0.5f) ||
+                (distance(position, obj->position) < (obj->scale.z + scale.z) * 0.5f)) {
+                if (!obj_animation)
+                    return false;
+            }
+        }
+    }
+    return true;
+}
+```
+
+**Key frames moving of object**
+```cpp
+void Object::fig_move(Scene &scene) {
+
+    if(position.x == scene.mover_pos_src.x && position.z == scene.mover_pos_src.z && color == scene.turn && scene.move){
+        keyFrames[0].modelMatrix = glm::translate(mat4(1.0f), position);
+        keyFrames[0].time = 0;
+        keyFrames[1].modelMatrix = glm::translate(mat4(1.0f), vec3(scene.mover_pos_src.x, 1.5f, scene.mover_pos_src.z));
+        keyFrames[1].time = 40;
+        keyFrames[2].modelMatrix = glm::translate(mat4(1.0f), vec3(scene.mover_pos_dest.x, 1.5f, scene.mover_pos_dest.z));
+        keyFrames[2].time = 20;
+        keyFrames[3].modelMatrix = glm::translate(mat4(1.0f), vec3(scene.mover_pos_dest.x, 0.0f, scene.mover_pos_dest.z));
+        keyFrames[3].time = 40;
+        scene.cam_turn(scene.turn);
+        if (scene.turn == 1) {
+            scene.turn = 0;
+        } else if (scene.turn == 0) {
+            scene.turn = 1;
+        }
+        scene.move = false;
+        scene.animation = true;
+        obj_animation = true;
+        temp_position = vec3(scene.mover_pos_dest.x, 0.0f, scene.mover_pos_dest.z);
+    } else {
+        /*keyFrames[0].modelMatrix = glm::translate(mat4(1.0f), position);
+        keyFrames[0].time = 0;
+        keyFrames[1].modelMatrix = glm::translate(mat4(1.0f), position);
+        keyFrames[1].time = 1;
+        keyFrames[2].modelMatrix = glm::translate(mat4(1.0f), position);
+        keyFrames[2].time = 1;
+        keyFrames[3].modelMatrix = glm::translate(mat4(1.0f), position);
+        keyFrames[3].time = 1;*/
+    }
+}
+```
+
+	
+**Sources:**
+	
+[PPGaSO](http://www2.fiit.stuba.sk/~drahos/#%5B%5BPrinciples%20of%20Computer%20Graphics%20and%20Image%20Processing%202017%5D%5D)
+
+[drahosp](https://github.com/drahosp)
+
