@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Personal static web page  :star2:"
+title:  "Document transformation to DocBook format  :star2:"
 date:   2018-03-26 18:18:18 +0200
 author: "Jozef Varga"
 depth: 2
